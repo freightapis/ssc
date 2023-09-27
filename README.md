@@ -1,4 +1,4 @@
-![SSC Logo](images/SSC_logo_black.png)
+![SSC Logo](images/logos/SSC_logo.png)
 
 # SSC - Scheduling Standards Consortium
 
@@ -8,4 +8,4 @@ For more details about the Consortium, check out [freightapis.org](https://www.f
 
 ## Feedback and Discussion
 
-Please use the [discussions tab](https://github.com/freightapis/ssc-beta/discussions) to leave feedback on the specification. If you find any specific issues with the specifications, please create an issue on the [issues tab](https://github.com/freightapis/ssc-beta/issues).
+Please use the [discussions tab](https://github.com/freightapis/ssc/discussions) to leave feedback on the specification. If you find any specific issues with the specifications, please create an issue on the [issues tab](https://github.com/freightapis/ssc/issues).

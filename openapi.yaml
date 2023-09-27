@@ -6,6 +6,8 @@ info:
     name: Scheduling Standards Consortium
     url: https://www.freightapis.org/
   description: |
+    ![SSC Logo](images/logos/SSC_logo.png)
+    
     # Introduction
 
     ## Problem Statement
@@ -270,6 +272,15 @@ paths:
             - The list of available appointment options SHOULD be restricted by necessary exclusions including, but not limited to, equipment type, commodity, consignee, "must-pickup-on" and "must-deliver-by" dates, etc. It is important to ensure dock groups are properly configured so that only eligible times are returned.
             - If there are no available appointments for the information passed by the carrier / broker, the list of available appointments in the success response SHOULD be empty.
             - Asynchronous success responses via webhook MUST be communicated via carrier / broker-provided callback endpoints using the fetch-available-appointments event, defined in the "Webhooks" section
+        
+        Figure 1: fetchAvailableAppointments with Synchronous Response
+        ![Figure 1: fetchAvailableAppointments with Synchronous Response](images/diagrams/fetchAvailableAppointments-sync.jpg)
+
+        Figure 2: fetchAvailableAppointments with Asynchronous Polling
+        ![Figure 2: fetchAvailableAppointments with Asynchronous Polling](images/diagrams/fetchAvailableAppointments-aync-poll.jpg)
+
+        Figure 3: fetchAvailableAppointments with Asynchronous Response via Callback URL or Webhook
+        ![Figure 3: fetchAvailableAppointments with Asynchronous Response via Callback URL or Webhook](images/diagrams/fetchAvailableAppointments-async-callbackOrWebhook.jpg)
       tags:
         - Appointments
       parameters:
@@ -397,6 +408,18 @@ paths:
             - The response MAY contain additional appointment detail information including the scheduled appointment identifier, dock group, dock door, available appointment status, appointment confirmation number, and location identifier.
             - The response MAY contain location address information, including street address, region, locality, country, and postal code.
             - Asynchronous success responses via webhook MUST be communicated via carrier / broker-provided callback endpoints using the appointment-changed event, defined in the "Webhooks" section.
+
+        Figure 4: scheduleAppointment with Synchronous Response for AUTOMATIC Appointment Types
+        ![Figure 4: scheduleAppointment with Synchronous Response for AUTOMATIC Appointment Types](images/diagrams/scheduleAppointment-sync-AUTOMATIC.jpg)
+
+        Figure 5: scheduleAppointment with Synchronous Response for CARRIER_CONFIRMATION_REQUIRED Appointment Types
+        ![Figure 5: scheduleAppointment with Synchronous Response for CARRIER_CONFIRMATION_REQUIRED Appointment Types](images/diagrams/scheduleAppointment-sync-CARRIER_CONFIRMATION_REQUIRED.jpg)
+
+        Figure 6: scheduleAppointment with Asynchronous Response for DEFERRED Appointment Types via Polling
+        ![Figure 6: scheduleAppointment with Asynchronous Response for DEFERRED Appointment Types via Polling](images/diagrams/scheduleAppointment-aync-poll.jpg)
+
+        Figure 7: scheduleAppointment with Asynchronous Response for DEFERRED Appointment Types via Callback URL or Webhook
+        ![Figure 7: scheduleAppointment with Asynchronous Response for DEFERRED Appointment Types via Callback URL or Webhook](images/diagrams/scheduleAppointment-aync-callbackOrWebhook.jpg)
       tags:
         - Appointments
       parameters:
@@ -495,6 +518,15 @@ paths:
             - Asynchronous success responses via webhook MUST be communicated via carrier / broker-provided callback endpoints using the appointment-changed event, defined in the "Webhooks" section.
             - If the reschedule appointment request is confirmed, the original appointment information for the carrier / broker MUST be updated in the TMS / appointment scheduling solution. This MAY result in an updated appointment confirmation number.
             - If the reschedule appointment request is rejected, the original appointment information for the carrier / broker should remain.
+
+        Figure 8: rescheduleAppointment with Synchronous Response for AUTOMATIC Appointment Types
+        ![Figure 8: rescheduleAppointment with Synchronous Response for AUTOMATIC Appointment Types](images/diagrams/rescheduleAppointment-sync.jpg)
+
+        Figure 9: rescheduleAppointment with Asynchronous Response for DEFERRED Appointment Types via Polling
+        ![Figure 9: rescheduleAppointment with Asynchronous Response for DEFERRED Appointment Types via Polling](images/diagrams/recheduleAppointment-aync-poll.jpg)
+
+        Figure 10: rescheduleAppointment with Asynchronous Response for DEFERRED Appointment Types via Callback URL or Webhook
+        ![Figure 10: rescheduleAppointment with Asynchronous Response for DEFERRED Appointment Types via Callback URL or Webhook](images/diagrams/rescheduleAppointment-aync-callbackOrWebhook.jpg)
       tags:
         - Appointments
       parameters:
@@ -576,6 +608,9 @@ paths:
             - The response MAY contain problem detail objects outlining why a particular failure occurred.
           - If the cancel appointment request is confirmed, the TMS / appointment scheduling solution MUST be able to return success responses. For this scenario:
             - The response MUST contain a success status.
+
+        Figure 11: cancelAppointment with Synchronous Response
+        ![Figure 11: cancelAppointment with Synchronous Response](images/diagrams/cancelAppointment-sync.jpg)
       tags:
         - Appointments
       requestBody:
@@ -643,6 +678,9 @@ paths:
             - The response MAY contain additional appointment detail information including the scheduled appointment identifier, the appointment start date and time, dock group, dock door, appointment confirmation number, and location identifier.
             - The response MAY contain location address information, including street address, region, locality, country, and postal code.
             - The response MAY contain the most recent reason code and comment for the appointment.
+
+        Figure 12: fetchAppointmentDetails with Synchronous Response
+        ![Figure 12: fetchAppointmentDetails with Synchronous Response](images/diagrams/fetchAppointmentDetails-sync.jpg)
       tags:
         - Appointments
       requestBody:
@@ -698,6 +736,9 @@ paths:
           - The event types SHOULD include one of two types. For these types:
             - If the carrier / broker is subscribed to receive updates when an appointment is changed, the TMS / appointment scheduling solution SHOULD return a type of "appointment-changed."
             - If the carrier / broker is subscribed to receive fetched lists of available appointments, the TMS / appointment scheduling solution SHOULD return a type of "fetch-available-appointments."
+
+        Figure 13: Get All Subscriptions via Webhook
+        ![Figure 13: Get All Subscriptions via Webhook](images/diagrams/webhooks-getSubscriptions.jpg)
       tags:
         - Webhooks
       responses:
@@ -737,6 +778,9 @@ paths:
           - The event types SHOULD include one of two types. For these types:
             - If the carrier / broker is subscribed to receive updates when an appointment is changed, the TMS / appointment scheduling solution SHOULD return a type of "appointment-changed."
             - If the carrier / broker is subscribed to receive fetched lists of available appointments, the TMS / appointment scheduling solution SHOULD return a type of "fetch-available-appointments."
+
+        Figure 15: Create Subscriptions via Webhook
+        ![Figure 15: Create Subscriptions via Webhook](images/diagrams/webhooks-createSubscriptions.jpg)
       tags:
         - Webhooks
       requestBody:
@@ -795,6 +839,9 @@ paths:
           - The event types SHOULD include one of two types. For these types:
             - If the carrier / broker is subscribed to receive updates when an appointment is changed, the TMS / appointment scheduling solution SHOULD return a type of "appointment-changed."
             - If the carrier / broker is subscribed to receive fetched lists of available appointments, the TMS / appointment scheduling solution SHOULD return a type of "fetch-available-appointments."
+
+        Figure 14: Get Specific Subscription via Webhook
+        ![Figure 14: Get Specific Subscription via Webhook](images/diagrams/webhooks-getSpecificSubscription.jpg)
       tags:
         - Webhooks
       responses:
@@ -819,6 +866,9 @@ paths:
           - The event types SHOULD include one of two types. For these types:
             - If the carrier / broker is subscribed to receive updates when an appointment is changed, the TMS / appointment scheduling solution SHOULD return a type of "appointment-changed."
             - If the carrier / broker is subscribed to receive fetched lists of available appointments, the TMS / appointment scheduling solution SHOULD return a type of "fetch-available-appointments."
+
+        Figure 16: Update Subscriptions via Webhook
+        ![Figure 16: Update Subscriptions via Webhook](images/diagrams/webhooks-updateSubscription.jpg)
       tags:
         - Webhooks
       requestBody:
@@ -846,6 +896,9 @@ paths:
         As a carrier / broker, I expect to delete subscribed webhook events for appointment management in a TMS / appointment scheduling solution.
 
         - In a response, the TMS / appointment scheduling solution MAY confirm the deleted webhook event subscription.
+
+        Figure 17: Delete Subscriptions via Webhook
+        ![Figure 17: Delete Subscriptions via Webhook](images/diagrams/webhooks-deleteSubscription.jpg)
       tags:
         - Webhooks
       responses:
@@ -871,6 +924,9 @@ webhooks:
         - In a request, the TMS / appointment scheduling solution MAY be able to pass reason codes and comments.
         - In a request, the TMS / appointment scheduling solution MUST provide the time in which the change to the appointment occurred.
         - In a response, the carrier / broker MAY confirm the appointment-changed webhook event information was received.
+
+        Figure 18: Receive Appointment-Changed Events via Webhook
+        ![Figure 18: Receive Appointment-Changed Events via Webhook](images/diagrams/webhooks-appointment-changed.jpg)
       requestBody:
         required: true
         content:
@@ -953,6 +1009,9 @@ webhooks:
             - The list of available appointment options SHOULD be restricted by necessary exclusions including, but not limited to, equipment type, commodity, consignee, "must-pickup-on" and "must-deliver-by" dates, etc. It is important to ensure dock groups are properly configured so that only eligible times are returned.
             - If there are no available appointments for the information passed by the carrier / broker, the list of available appointments in the success request SHOULD be empty.
         - In a response, the carrier / broker MAY confirm the fetch-available-appointment webhook event information was received.
+
+        Figure 19: Receive Fetch-Available-Appointments Events via Webhook
+        ![Figure 19: Receive Fetch-Available-Appointments Events via Webhook](images/diagrams/webhooks-fetch-available-appointments.jpg)
       requestBody:
         required: true
         content:
