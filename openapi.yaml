@@ -5,6 +5,9 @@ info:
   contact:
     name: Scheduling Standards Consortium
     url: https://www.freightapis.org/
+  license:
+    name: SSC Scheduling Specification V1 License
+    url: https://github.com/freightapis/ssc/blob/main/LICENSE.md
   description: |
     ![SSC Logo](images/logos/SSC_logo.png)
     
