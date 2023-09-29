@@ -6,6 +6,10 @@ Convoy, J.B. Hunt and Uber Freight formed the Scheduling Standards Consortium (S
 
 For more details about the Consortium, check out [freightapis.org](https://www.freightapis.org/).
 
+## Read the Spec
+
+To read the spec, visit [freightapis.github.io/ssc](https://freightapis.github.io/ssc).
+
 ## Feedback and Discussion
 
 Please use the [discussions tab](https://github.com/freightapis/ssc/discussions) to leave feedback on the specification. If you find any specific issues with the specifications, please create an issue on the [issues tab](https://github.com/freightapis/ssc/issues).
