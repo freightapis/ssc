@@ -12,4 +12,4 @@ To read the spec, visit [freightapis.github.io/ssc](https://freightapis.github.i
 
 ## Feedback and Discussion
 
-Please use the [discussions tab](https://github.com/freightapis/ssc/discussions) to leave feedback on the specification. If you find any specific issues with the specifications, please create an issue on the [issues tab](https://github.com/freightapis/ssc/issues).
+Please use the [discussions tab](https://github.com/freightapis/ssc/discussions) to leave feedback on the specification. If you find any specific issues with the specifications, please create an issue in the [issues tab](https://github.com/freightapis/ssc/issues).

@@ -4,7 +4,7 @@ info:
   version: '1.0.0'
   contact:
     name: Scheduling Standards Consortium
-    url: https://www.freightapis.org/
+    url: https://github.com/freightapis/ssc
   license:
     name: SSC Scheduling Specification V1 License
     url: https://github.com/freightapis/ssc/blob/main/LICENSE.md
@@ -236,6 +236,9 @@ info:
 
     When canceling an existing appointment, scenarios could arise where the appointment that is being canceled has pending requests from the carrier / broker, e.g., carrier / broker submits a reschedule appointment request prior to making a decision to cancel the appointment altogether. In general, it makes sense that canceling an appointment would also result in the cancelation of any pending requests related to that appointment. However, TMSs / appointment scheduling solutions may have unique implementations that may require additional efforts internally or from carriers / brokers to resolve these scenarios. For these reasons, the SSC has chosen not to prescribe expected behavior, but encourages TMSs / appointment scheduling solutions to clearly outline their expectations in their documentation that they provide to carriers / brokers who choose to integrate with their technology.
 
+    # Feedback and Discussions
+
+    All feedback and discussions will be handled within the [GitHub repository](https://github.com/freightapis/ssc). Please use the [discussions tab](https://github.com/freightapis/ssc-internal/discussions) to leave feedback on the specification. If you find any specific issues with the specifications, please create an issue in the [issues tab](https://github.com/freightapis/ssc-internal/issues).
 tags:
   - name: Appointments
     description: |
