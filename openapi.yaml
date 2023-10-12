@@ -238,7 +238,7 @@ info:
 
     # Feedback and Discussions
 
-    All feedback and discussions will be handled within the [GitHub repository](https://github.com/freightapis/ssc). Please use the [discussions tab](https://github.com/freightapis/ssc-internal/discussions) to leave feedback on the specification. If you find any specific issues with the specifications, please create an issue in the [issues tab](https://github.com/freightapis/ssc-internal/issues).
+    All feedback and discussions will be handled within the [GitHub repository](https://github.com/freightapis/ssc). Please use the [discussions tab](https://github.com/freightapis/ssc/discussions) to leave feedback on the specification. If you find any specific issues with the specifications, please create an issue in the [issues tab](https://github.com/freightapis/ssc/issues).
 tags:
   - name: Appointments
     description: |
