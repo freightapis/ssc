@@ -1,7 +1,7 @@
 openapi: 3.1.0
 info:
   title: 'Appointments'
-  version: '1.0.0'
+  version: '1.0.1'
   contact:
     name: Scheduling Standards Consortium
     url: https://github.com/freightapis/ssc
@@ -739,7 +739,7 @@ paths:
 
         - In a response, the TMS / appointment scheduling solution SHOULD produce a list of current webhook event subscriptions.
           - For each subscription, the response MAY contain a subscription identifier, event types, and a callback URL.
-          - The event types SHOULD include one of two types. For these types:
+          - The event types MAY include zero or more types. For these types:
             - If the carrier / broker is subscribed to receive updates when an appointment is changed, the TMS / appointment scheduling solution SHOULD return a type of "appointment-changed."
             - If the carrier / broker is subscribed to receive fetched lists of available appointments, the TMS / appointment scheduling solution SHOULD return a type of "fetch-available-appointments."
 
@@ -781,7 +781,7 @@ paths:
         - In a request, the carrier / broker MAY be able to subscribe to webhook events with event types and a callback URL.
         - In a response, the TMS / appointment scheduling solution MAY confirm the new webhook event subscriptions.
           - For each subscription, the response MAY contain a subscription identifier, event types, and a callback URL.
-          - The event types SHOULD include one of two types. For these types:
+          - The event types MAY include zero or more types. For these types:
             - If the carrier / broker is subscribed to receive updates when an appointment is changed, the TMS / appointment scheduling solution SHOULD return a type of "appointment-changed."
             - If the carrier / broker is subscribed to receive fetched lists of available appointments, the TMS / appointment scheduling solution SHOULD return a type of "fetch-available-appointments."
 
@@ -842,7 +842,7 @@ paths:
 
         - In a response, the TMS / appointment scheduling solution MAY produce a specific current webhook event subscription.
           - The response MAY contain a subscription identifier, event types, and a callback URL.
-          - The event types SHOULD include one of two types. For these types:
+          - The event types MAY include zero or more types. For these types:
             - If the carrier / broker is subscribed to receive updates when an appointment is changed, the TMS / appointment scheduling solution SHOULD return a type of "appointment-changed."
             - If the carrier / broker is subscribed to receive fetched lists of available appointments, the TMS / appointment scheduling solution SHOULD return a type of "fetch-available-appointments."
 
@@ -869,7 +869,7 @@ paths:
         - In a request, the carrier / broker MAY be able to update subscribed webhook events with a subscription identifier, event types and a callback URL.
         - In a response, the TMS / appointment scheduling solution MAY confirm the updated webhook event subscription.
           - The response MAY contain a subscription identifier, event types, and a callback URL.
-          - The event types SHOULD include one of two types. For these types:
+          - The event types MAY include zero or more types. For these types:
             - If the carrier / broker is subscribed to receive updates when an appointment is changed, the TMS / appointment scheduling solution SHOULD return a type of "appointment-changed."
             - If the carrier / broker is subscribed to receive fetched lists of available appointments, the TMS / appointment scheduling solution SHOULD return a type of "fetch-available-appointments."
 
