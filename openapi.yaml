@@ -283,7 +283,7 @@ paths:
         ![Figure 1: fetchAvailableAppointments with Synchronous Response](images/diagrams/fetchAvailableAppointments-sync.jpg)
 
         Figure 2: fetchAvailableAppointments with Asynchronous Polling
-        ![Figure 2: fetchAvailableAppointments with Asynchronous Polling](images/diagrams/fetchAvailableAppointments-aync-poll.jpg)
+        ![Figure 2: fetchAvailableAppointments with Asynchronous Polling](images/diagrams/fetchAvailableAppointments-async-poll.jpg)
 
         Figure 3: fetchAvailableAppointments with Asynchronous Response via Callback URL or Webhook
         ![Figure 3: fetchAvailableAppointments with Asynchronous Response via Callback URL or Webhook](images/diagrams/fetchAvailableAppointments-async-callbackOrWebhook.jpg)
@@ -422,10 +422,10 @@ paths:
         ![Figure 5: scheduleAppointment with Synchronous Response for CARRIER_CONFIRMATION_REQUIRED Appointment Types](images/diagrams/scheduleAppointment-sync-CARRIER_CONFIRMATION_REQUIRED.jpg)
 
         Figure 6: scheduleAppointment with Asynchronous Response for DEFERRED Appointment Types via Polling
-        ![Figure 6: scheduleAppointment with Asynchronous Response for DEFERRED Appointment Types via Polling](images/diagrams/scheduleAppointment-aync-poll.jpg)
+        ![Figure 6: scheduleAppointment with Asynchronous Response for DEFERRED Appointment Types via Polling](images/diagrams/scheduleAppointment-async-poll.jpg)
 
         Figure 7: scheduleAppointment with Asynchronous Response for DEFERRED Appointment Types via Callback URL or Webhook
-        ![Figure 7: scheduleAppointment with Asynchronous Response for DEFERRED Appointment Types via Callback URL or Webhook](images/diagrams/scheduleAppointment-aync-callbackOrWebhook.jpg)
+        ![Figure 7: scheduleAppointment with Asynchronous Response for DEFERRED Appointment Types via Callback URL or Webhook](images/diagrams/scheduleAppointment-async-callbackOrWebhook.jpg)
       tags:
         - Appointments
       parameters:
@@ -529,10 +529,10 @@ paths:
         ![Figure 8: rescheduleAppointment with Synchronous Response for AUTOMATIC Appointment Types](images/diagrams/rescheduleAppointment-sync.jpg)
 
         Figure 9: rescheduleAppointment with Asynchronous Response for DEFERRED Appointment Types via Polling
-        ![Figure 9: rescheduleAppointment with Asynchronous Response for DEFERRED Appointment Types via Polling](images/diagrams/recheduleAppointment-aync-poll.jpg)
+        ![Figure 9: rescheduleAppointment with Asynchronous Response for DEFERRED Appointment Types via Polling](images/diagrams/recheduleAppointment-async-poll.jpg)
 
         Figure 10: rescheduleAppointment with Asynchronous Response for DEFERRED Appointment Types via Callback URL or Webhook
-        ![Figure 10: rescheduleAppointment with Asynchronous Response for DEFERRED Appointment Types via Callback URL or Webhook](images/diagrams/rescheduleAppointment-aync-callbackOrWebhook.jpg)
+        ![Figure 10: rescheduleAppointment with Asynchronous Response for DEFERRED Appointment Types via Callback URL or Webhook](images/diagrams/rescheduleAppointment-async-callbackOrWebhook.jpg)
       tags:
         - Appointments
       parameters:
