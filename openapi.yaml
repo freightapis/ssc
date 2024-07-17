@@ -336,6 +336,9 @@ paths:
                           type: string
                           description: Single date to return appointments for
                           format: date
+                options:
+                  description: Optional options by which to filter appointments
+                  $ref: '#/components/schemas/appointmentOptions'
             examples:
               minimumRequired:
                 summary: Minimum Required
@@ -353,6 +356,19 @@ paths:
                     stopSequenceNumber: 1
                   dateRestrictions:
                     exactDate: '2023-04-15'
+              exactDateWithLiveOption:
+                summary: Exact Date with Live Option
+                description: This example shows a minimum request using an exact date with a LIVE loadingType option. This would be used to filter the results to only options with a loadType of LIVE
+                value:
+                  identifiers:
+                    primaryReferenceNumber: 'LOAD1234'
+                    stopSequenceNumber: 1
+                  dateRestrictions:
+                    exactDate: '2023-04-15'
+                  options:
+                    - type: 'loadingType'
+                      values:
+                        - 'LIVE'
       responses:
         '200':
           description: Successful action response
@@ -448,6 +464,8 @@ paths:
                   $ref: '#/components/schemas/commonIdentifiers'
                 preferredAppointment:
                   $ref: '#/components/schemas/clientRequestedAppointment'
+                options:
+                  $ref: '#/components/schemas/appointmentOptions'
                 reasonCode:
                   type: string
                   description: Reason code explaining why the appointment is being scheduled
@@ -555,6 +573,8 @@ paths:
                   $ref: '#/components/schemas/appointmentIdentifier'
                 preferredAppointment:
                   $ref: '#/components/schemas/clientRequestedAppointment'
+                options:
+                  $ref: '#/components/schemas/appointmentOptions'
                 reasonCode:
                   type: string
                   description: Reason code explaining why the appointment is being rescheduled
@@ -1224,6 +1244,8 @@ components:
           $ref: '#/components/schemas/dockGroup'
         dockDoor:
           $ref: '#/components/schemas/dockDoor'
+        options:
+          $ref: '#/components/schemas/appointmentOptions'
     appointment:
       type: object
       title: Appointment
@@ -1279,6 +1301,48 @@ components:
     appointmentConfirmationNumber:
       type: string
       description: Appointment confirmation number provided by the TMS / appointment scheduling solution at the time an appointment is scheduled.
+    appointmentOptions:
+      description: Options available for a specific appointment
+      type: array
+      items:
+        anyOf:
+          - $ref: '#/components/schemas/appointmentOptionLoadingType'
+          - $ref: '#/components/schemas/appointmentOption'
+    appointmentOption:
+      title: Appointment Option
+      type: object
+      properties:
+        type:
+          type: string
+          description: A specific type of appointment option
+        values:
+          description: The values available for a given type of appointment option
+          type: array
+          items:
+            type: string
+      required:
+        - type
+        - values
+    appointmentOptionLoadingType:
+      title: Loading Type
+      description: The loading type appointment option
+      allOf:
+        - $ref: '#/components/schemas/appointmentOption'
+        - type: object
+          properties:
+            type:
+              description: The loading type appointment option
+              type: string
+              enum:
+                - loadingType
+            values:
+              description: The values for the loading type
+              type: array
+              items:
+                type: string
+                enum:
+                  - LIVE
+                  - DROP
     locationId:
       type: string
       description: Unique location identifier that is specific to the TMS / appointment scheduling solution.
@@ -1574,6 +1638,8 @@ components:
                   $ref: '#/components/schemas/appointment'
                 appointmentStatus:
                   $ref: '#/components/schemas/appointmentStatus'
+                appointmentOptions:
+                  $ref: '#/components/schemas/appointmentOptions'
                 appointmentConfirmationNumber:
                   $ref: '#/components/schemas/appointmentConfirmationNumber'
             - $ref: '#/components/schemas/locationObject'
@@ -1591,6 +1657,8 @@ components:
                   $ref: '#/components/schemas/appointment'
                 appointmentConfirmationNumber:
                   $ref: '#/components/schemas/appointmentConfirmationNumber'
+                appointmentOptions:
+                  $ref: '#/components/schemas/appointmentOptions'
                 appointmentStatus:
                   $ref: '#/components/schemas/appointmentStatus'
                 mostRecentReasonCode:
