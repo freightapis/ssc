@@ -336,9 +336,6 @@ paths:
                           type: string
                           description: Single date to return appointments for
                           format: date
-                options:
-                  description: Optional options by which to filter appointments
-                  $ref: '#/components/schemas/appointmentOptions'
             examples:
               minimumRequired:
                 summary: Minimum Required
@@ -356,19 +353,6 @@ paths:
                     stopSequenceNumber: 1
                   dateRestrictions:
                     exactDate: '2023-04-15'
-              exactDateWithLiveOption:
-                summary: Exact Date with Live Option
-                description: This example shows a minimum request using an exact date with a LIVE loadingType option. This would be used to filter the results to only options with a loadType of LIVE
-                value:
-                  identifiers:
-                    primaryReferenceNumber: 'LOAD1234'
-                    stopSequenceNumber: 1
-                  dateRestrictions:
-                    exactDate: '2023-04-15'
-                  options:
-                    - type: 'loadingType'
-                      values:
-                        - 'LIVE'
       responses:
         '200':
           description: Successful action response
