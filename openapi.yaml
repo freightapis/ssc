@@ -448,8 +448,6 @@ paths:
                   $ref: '#/components/schemas/commonIdentifiers'
                 preferredAppointment:
                   $ref: '#/components/schemas/clientRequestedAppointment'
-                options:
-                  $ref: '#/components/schemas/appointmentOptions'
                 reasonCode:
                   type: string
                   description: Reason code explaining why the appointment is being scheduled
@@ -557,8 +555,6 @@ paths:
                   $ref: '#/components/schemas/appointmentIdentifier'
                 preferredAppointment:
                   $ref: '#/components/schemas/clientRequestedAppointment'
-                options:
-                  $ref: '#/components/schemas/appointmentOptions'
                 reasonCode:
                   type: string
                   description: Reason code explaining why the appointment is being rescheduled
@@ -1199,6 +1195,8 @@ components:
               $ref: '#/components/schemas/availableAppointmentIdString'
             appointmentType:
               $ref: '#/components/schemas/appointmentType'
+            options:
+              $ref: '#/components/schemas/appointmentOptions'
         - type: object
           title: Appointment Details
           description: The appointment details requested by the client
@@ -1213,6 +1211,8 @@ components:
               $ref: '#/components/schemas/dockGroup'
             dockDoor:
               $ref: '#/components/schemas/dockDoor'
+            options:
+              $ref: '#/components/schemas/appointmentOptions'
     availableAppointment:
       type: object
       title: Available Appointment
@@ -1243,6 +1243,8 @@ components:
           $ref: '#/components/schemas/dockGroup'
         dockDoor:
           $ref: '#/components/schemas/dockDoor'
+        options:
+          $ref: '#/components/schemas/appointmentOptions'
     appointmentArrivalWindow:
       type: object
       description: The window of time that a carrier is allowed to arrive for the appointment. Specified by a start time and the duration of the arrival window.
@@ -1622,8 +1624,6 @@ components:
                   $ref: '#/components/schemas/appointment'
                 appointmentStatus:
                   $ref: '#/components/schemas/appointmentStatus'
-                appointmentOptions:
-                  $ref: '#/components/schemas/appointmentOptions'
                 appointmentConfirmationNumber:
                   $ref: '#/components/schemas/appointmentConfirmationNumber'
             - $ref: '#/components/schemas/locationObject'
@@ -1641,8 +1641,6 @@ components:
                   $ref: '#/components/schemas/appointment'
                 appointmentConfirmationNumber:
                   $ref: '#/components/schemas/appointmentConfirmationNumber'
-                appointmentOptions:
-                  $ref: '#/components/schemas/appointmentOptions'
                 appointmentStatus:
                   $ref: '#/components/schemas/appointmentStatus'
                 mostRecentReasonCode:
