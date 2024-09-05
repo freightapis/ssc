@@ -1181,6 +1181,14 @@ components:
         - DEFERRED
         - FCFS
         - CARRIER_CONFIRMATION_REQUIRED
+    loadingType:
+      type: string
+      description: |
+        - LIVE - Live load appointment
+        - DROP - Drop appointment
+      enum:
+        - LIVE
+        - DROP
 
     # --- Core Entity Schemas --- #
     clientRequestedAppointment:
@@ -1382,6 +1390,8 @@ components:
           $ref: '#/components/schemas/locationId'
         locationAddress:
           $ref: '#/components/schemas/schemaOrgAddress'
+        loadingType:
+          $ref: '#/components/schemas/loadingType'
 
     # --- Event-related schemas --- #
     fetchAvailableAppointmentsEvent:
