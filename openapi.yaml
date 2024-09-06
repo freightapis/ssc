@@ -1198,6 +1198,7 @@ components:
           description: The appointment ID
           required:
             - id
+            - loadingType
           properties:
             id:
               $ref: '#/components/schemas/availableAppointmentIdString'
@@ -1217,6 +1218,8 @@ components:
               $ref: '#/components/schemas/dockGroup'
             dockDoor:
               $ref: '#/components/schemas/dockDoor'
+            loadingType:
+              $ref: '#/components/schemas/loadingType'              
     availableAppointment:
       type: object
       title: Available Appointment
@@ -1232,6 +1235,8 @@ components:
           $ref: '#/components/schemas/dockGroup'
         dockDoor:
           $ref: '#/components/schemas/dockDoor'
+        loadingType:
+          $ref: '#/components/schemas/loadingType'
     appointment:
       type: object
       title: Appointment
