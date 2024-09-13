@@ -336,8 +336,6 @@ paths:
                           type: string
                           description: Single date to return appointments for
                           format: date
-                loadingType:
-                  $ref: '#/components/schemas/loadingType'
             examples:
               minimumRequired:
                 summary: Minimum Required
@@ -728,6 +726,7 @@ paths:
                       arrivalWindow:
                         startDateTime: '2023-04-15T12:00:00.000-05:00'
                         duration: 'PT1H'
+                      loadingType: 'LIVE'
                     appointmentConfirmationNumber: 'C1234'
                     appointmentStatus: 'CONFIRMED'
                 failure:
@@ -990,6 +989,7 @@ webhooks:
                       arrivalWindow:
                         startDateTime: '2023-04-15T12:00:00.000-05:00'
                         duration: 'PT1H'
+                      loadingType: 'LIVE'
                     appointmentStatus: 'CONFIRMED'
                   occurredAt: '2023-04-15T08:02:23.123Z'
       responses:
@@ -1049,6 +1049,7 @@ webhooks:
                       arrivalWindow:
                         startDateTime: '2023-04-15T12:00:00.000-05:00'
                         duration: 'PT1H'
+                      loadingType: 'LIVE'
                   identifiers:
                     requestIdentifier: 'R1234'
                   occurredAt: '2023-04-15T08:02:23.123Z'
@@ -1080,6 +1081,7 @@ components:
             arrivalWindow:
               startDateTime: '2023-04-15T12:00:00.000-05:00'
               duration: 'PT1H'
+            loadingType: 'LIVE'
     modifiedAppointmentRequest:
       summary: Minimum Required
       description: This example is the bare minimum required to schedule/reschedule an appointment
@@ -1089,6 +1091,7 @@ components:
           stopSequenceNumber: 1
         preferredAppointment:
           id: '1234'
+          loadingType: 'LIVE'
     modifiedAppointmentResponseSuccess:
       summary: Success
       description: Example of a success response
