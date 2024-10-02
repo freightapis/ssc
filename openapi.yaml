@@ -2,6 +2,7 @@ openapi: 3.1.0
 info:
   title: 'Appointments'
   version: '1.0.1'
+  version: '1.1.0'
   contact:
     name: Scheduling Standards Consortium
     url: https://github.com/freightapis/ssc
