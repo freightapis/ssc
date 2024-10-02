@@ -1,7 +1,7 @@
 openapi: 3.1.0
 info:
   title: 'Appointments'
-  version: '1.0.1'
+  version: '1.1.0'
   contact:
     name: Scheduling Standards Consortium
     url: https://github.com/freightapis/ssc
@@ -726,6 +726,7 @@ paths:
                       arrivalWindow:
                         startDateTime: '2023-04-15T12:00:00.000-05:00'
                         duration: 'PT1H'
+                      loadingType: 'LIVE'
                     appointmentConfirmationNumber: 'C1234'
                     appointmentStatus: 'CONFIRMED'
                 failure:
@@ -988,6 +989,7 @@ webhooks:
                       arrivalWindow:
                         startDateTime: '2023-04-15T12:00:00.000-05:00'
                         duration: 'PT1H'
+                      loadingType: 'LIVE'
                     appointmentStatus: 'CONFIRMED'
                   occurredAt: '2023-04-15T08:02:23.123Z'
       responses:
@@ -1047,6 +1049,7 @@ webhooks:
                       arrivalWindow:
                         startDateTime: '2023-04-15T12:00:00.000-05:00'
                         duration: 'PT1H'
+                      loadingType: 'LIVE'
                   identifiers:
                     requestIdentifier: 'R1234'
                   occurredAt: '2023-04-15T08:02:23.123Z'
@@ -1078,6 +1081,7 @@ components:
             arrivalWindow:
               startDateTime: '2023-04-15T12:00:00.000-05:00'
               duration: 'PT1H'
+            loadingType: 'LIVE'
     modifiedAppointmentRequest:
       summary: Minimum Required
       description: This example is the bare minimum required to schedule/reschedule an appointment
@@ -1087,6 +1091,7 @@ components:
           stopSequenceNumber: 1
         preferredAppointment:
           id: '1234'
+          loadingType: 'LIVE'
     modifiedAppointmentResponseSuccess:
       summary: Success
       description: Example of a success response
@@ -1181,6 +1186,14 @@ components:
         - DEFERRED
         - FCFS
         - CARRIER_CONFIRMATION_REQUIRED
+    loadingType:
+      type: string
+      description: |
+        - LIVE - Live load appointment
+        - DROP - Drop appointment
+      enum:
+        - LIVE
+        - DROP
 
     # --- Core Entity Schemas --- #
     clientRequestedAppointment:
@@ -1195,6 +1208,8 @@ components:
               $ref: '#/components/schemas/availableAppointmentIdString'
             appointmentType:
               $ref: '#/components/schemas/appointmentType'
+            loadingType:
+              $ref: '#/components/schemas/loadingType' 
         - type: object
           title: Appointment Details
           description: The appointment details requested by the client
@@ -1209,6 +1224,8 @@ components:
               $ref: '#/components/schemas/dockGroup'
             dockDoor:
               $ref: '#/components/schemas/dockDoor'
+            loadingType:
+              $ref: '#/components/schemas/loadingType'              
     availableAppointment:
       type: object
       title: Available Appointment
@@ -1224,6 +1241,8 @@ components:
           $ref: '#/components/schemas/dockGroup'
         dockDoor:
           $ref: '#/components/schemas/dockDoor'
+        loadingType:
+          $ref: '#/components/schemas/loadingType'
     appointment:
       type: object
       title: Appointment
@@ -1237,6 +1256,8 @@ components:
           $ref: '#/components/schemas/dockGroup'
         dockDoor:
           $ref: '#/components/schemas/dockDoor'
+        loadingType:
+          $ref: '#/components/schemas/loadingType'
     appointmentArrivalWindow:
       type: object
       description: The window of time that a carrier is allowed to arrive for the appointment. Specified by a start time and the duration of the arrival window.
