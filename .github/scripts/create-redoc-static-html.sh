@@ -9,7 +9,7 @@ loadStaticHtmlToFolder() {
     local folder="$1"
     echo "Creating folder $publicFolder/$folder"
     mkdir -p $publicFolder/$folder
-    npx redoc-cli bundle $currentFolder/$folder/openapi.yaml -o $publicFolder/$folder/index.html
+    npx @redocly/cli bundle $currentFolder/$folder/openapi.yaml -o $publicFolder/$folder/index.html
 }
 
 # Selects all folders in the current directory
