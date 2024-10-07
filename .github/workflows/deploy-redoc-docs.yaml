@@ -3,10 +3,6 @@ on:
   push:
     branches:
       - main
-  workflow_dispatch:
-    inputs:
-      hello:
-        description: Hello
 
 jobs:
   build:
