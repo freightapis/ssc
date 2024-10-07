@@ -1,9 +1,12 @@
 name: Build docs
-#on:
-#  push:
-#    branches:
-#      - main
-on: workflow_dispatch
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      hello:
+        description: Hello
 
 jobs:
   build:
