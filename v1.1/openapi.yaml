@@ -9,7 +9,7 @@ info:
     name: SSC Scheduling Specification V1 License
     url: https://github.com/freightapis/ssc/blob/main/LICENSE.md
   description: |
-    ![SSC Logo](images/logos/SSC_logo.png)
+    ![SSC Logo](../images/logos/SSC_logo.png)
     
     # Introduction
 
@@ -280,13 +280,13 @@ paths:
             - Asynchronous success responses via webhook MUST be communicated via carrier / broker-provided callback endpoints using the fetch-available-appointments event, defined in the "Webhooks" section
         
         Figure 1: fetchAvailableAppointments with Synchronous Response
-        ![Figure 1: fetchAvailableAppointments with Synchronous Response](images/diagrams/fetchAvailableAppointments-sync.jpg)
+        ![Figure 1: fetchAvailableAppointments with Synchronous Response](../images/diagrams/fetchAvailableAppointments-sync.jpg)
 
         Figure 2: fetchAvailableAppointments with Asynchronous Polling
-        ![Figure 2: fetchAvailableAppointments with Asynchronous Polling](images/diagrams/fetchAvailableAppointments-async-poll.jpg)
+        ![Figure 2: fetchAvailableAppointments with Asynchronous Polling](../images/diagrams/fetchAvailableAppointments-async-poll.jpg)
 
         Figure 3: fetchAvailableAppointments with Asynchronous Response via Callback URL or Webhook
-        ![Figure 3: fetchAvailableAppointments with Asynchronous Response via Callback URL or Webhook](images/diagrams/fetchAvailableAppointments-async-callbackOrWebhook.jpg)
+        ![Figure 3: fetchAvailableAppointments with Asynchronous Response via Callback URL or Webhook](../images/diagrams/fetchAvailableAppointments-async-callbackOrWebhook.jpg)
       tags:
         - Appointments
       parameters:
@@ -416,16 +416,16 @@ paths:
             - Asynchronous success responses via webhook MUST be communicated via carrier / broker-provided callback endpoints using the appointment-changed event, defined in the "Webhooks" section.
 
         Figure 4: scheduleAppointment with Synchronous Response for AUTOMATIC Appointment Types
-        ![Figure 4: scheduleAppointment with Synchronous Response for AUTOMATIC Appointment Types](images/diagrams/scheduleAppointment-sync-AUTOMATIC.jpg)
+        ![Figure 4: scheduleAppointment with Synchronous Response for AUTOMATIC Appointment Types](../images/diagrams/scheduleAppointment-sync-AUTOMATIC.jpg)
 
         Figure 5: scheduleAppointment with Synchronous Response for CARRIER_CONFIRMATION_REQUIRED Appointment Types
-        ![Figure 5: scheduleAppointment with Synchronous Response for CARRIER_CONFIRMATION_REQUIRED Appointment Types](images/diagrams/scheduleAppointment-sync-CARRIER_CONFIRMATION_REQUIRED.jpg)
+        ![Figure 5: scheduleAppointment with Synchronous Response for CARRIER_CONFIRMATION_REQUIRED Appointment Types](../images/diagrams/scheduleAppointment-sync-CARRIER_CONFIRMATION_REQUIRED.jpg)
 
         Figure 6: scheduleAppointment with Asynchronous Response for DEFERRED Appointment Types via Polling
-        ![Figure 6: scheduleAppointment with Asynchronous Response for DEFERRED Appointment Types via Polling](images/diagrams/scheduleAppointment-async-poll.jpg)
+        ![Figure 6: scheduleAppointment with Asynchronous Response for DEFERRED Appointment Types via Polling](../images/diagrams/scheduleAppointment-async-poll.jpg)
 
         Figure 7: scheduleAppointment with Asynchronous Response for DEFERRED Appointment Types via Callback URL or Webhook
-        ![Figure 7: scheduleAppointment with Asynchronous Response for DEFERRED Appointment Types via Callback URL or Webhook](images/diagrams/scheduleAppointment-async-callbackOrWebhook.jpg)
+        ![Figure 7: scheduleAppointment with Asynchronous Response for DEFERRED Appointment Types via Callback URL or Webhook](../images/diagrams/scheduleAppointment-async-callbackOrWebhook.jpg)
       tags:
         - Appointments
       parameters:
@@ -526,13 +526,13 @@ paths:
             - If the reschedule appointment request is rejected, the original appointment information for the carrier / broker should remain.
 
         Figure 8: rescheduleAppointment with Synchronous Response for AUTOMATIC Appointment Types
-        ![Figure 8: rescheduleAppointment with Synchronous Response for AUTOMATIC Appointment Types](images/diagrams/rescheduleAppointment-sync.jpg)
+        ![Figure 8: rescheduleAppointment with Synchronous Response for AUTOMATIC Appointment Types](../images/diagrams/rescheduleAppointment-sync.jpg)
 
         Figure 9: rescheduleAppointment with Asynchronous Response for DEFERRED Appointment Types via Polling
-        ![Figure 9: rescheduleAppointment with Asynchronous Response for DEFERRED Appointment Types via Polling](images/diagrams/recheduleAppointment-async-poll.jpg)
+        ![Figure 9: rescheduleAppointment with Asynchronous Response for DEFERRED Appointment Types via Polling](../images/diagrams/recheduleAppointment-async-poll.jpg)
 
         Figure 10: rescheduleAppointment with Asynchronous Response for DEFERRED Appointment Types via Callback URL or Webhook
-        ![Figure 10: rescheduleAppointment with Asynchronous Response for DEFERRED Appointment Types via Callback URL or Webhook](images/diagrams/rescheduleAppointment-async-callbackOrWebhook.jpg)
+        ![Figure 10: rescheduleAppointment with Asynchronous Response for DEFERRED Appointment Types via Callback URL or Webhook](../images/diagrams/rescheduleAppointment-async-callbackOrWebhook.jpg)
       tags:
         - Appointments
       parameters:
@@ -616,7 +616,7 @@ paths:
             - The response MUST contain a success status.
 
         Figure 11: cancelAppointment with Synchronous Response
-        ![Figure 11: cancelAppointment with Synchronous Response](images/diagrams/cancelAppointment-sync.jpg)
+        ![Figure 11: cancelAppointment with Synchronous Response](../images/diagrams/cancelAppointment-sync.jpg)
       tags:
         - Appointments
       requestBody:
@@ -686,7 +686,7 @@ paths:
             - The response MAY contain the most recent reason code and comment for the appointment.
 
         Figure 12: fetchAppointmentDetails with Synchronous Response
-        ![Figure 12: fetchAppointmentDetails with Synchronous Response](images/diagrams/fetchAppointmentDetails-sync.jpg)
+        ![Figure 12: fetchAppointmentDetails with Synchronous Response](../images/diagrams/fetchAppointmentDetails-sync.jpg)
       tags:
         - Appointments
       requestBody:
@@ -745,7 +745,7 @@ paths:
             - If the carrier / broker is subscribed to receive fetched lists of available appointments, the TMS / appointment scheduling solution SHOULD return a type of "fetch-available-appointments."
 
         Figure 13: Get All Subscriptions via Webhook
-        ![Figure 13: Get All Subscriptions via Webhook](images/diagrams/webhooks-getSubscriptions.jpg)
+        ![Figure 13: Get All Subscriptions via Webhook](../images/diagrams/webhooks-getSubscriptions.jpg)
       tags:
         - Webhooks
       responses:
@@ -787,7 +787,7 @@ paths:
             - If the carrier / broker is subscribed to receive fetched lists of available appointments, the TMS / appointment scheduling solution SHOULD return a type of "fetch-available-appointments."
 
         Figure 15: Create Subscriptions via Webhook
-        ![Figure 15: Create Subscriptions via Webhook](images/diagrams/webhooks-createSubscriptions.jpg)
+        ![Figure 15: Create Subscriptions via Webhook](../images/diagrams/webhooks-createSubscriptions.jpg)
       tags:
         - Webhooks
       requestBody:
@@ -848,7 +848,7 @@ paths:
             - If the carrier / broker is subscribed to receive fetched lists of available appointments, the TMS / appointment scheduling solution SHOULD return a type of "fetch-available-appointments."
 
         Figure 14: Get Specific Subscription via Webhook
-        ![Figure 14: Get Specific Subscription via Webhook](images/diagrams/webhooks-getSpecificSubscription.jpg)
+        ![Figure 14: Get Specific Subscription via Webhook](../images/diagrams/webhooks-getSpecificSubscription.jpg)
       tags:
         - Webhooks
       responses:
@@ -875,7 +875,7 @@ paths:
             - If the carrier / broker is subscribed to receive fetched lists of available appointments, the TMS / appointment scheduling solution SHOULD return a type of "fetch-available-appointments."
 
         Figure 16: Update Subscriptions via Webhook
-        ![Figure 16: Update Subscriptions via Webhook](images/diagrams/webhooks-updateSubscription.jpg)
+        ![Figure 16: Update Subscriptions via Webhook](../images/diagrams/webhooks-updateSubscription.jpg)
       tags:
         - Webhooks
       requestBody:
@@ -905,7 +905,7 @@ paths:
         - In a response, the TMS / appointment scheduling solution MAY confirm the deleted webhook event subscription.
 
         Figure 17: Delete Subscriptions via Webhook
-        ![Figure 17: Delete Subscriptions via Webhook](images/diagrams/webhooks-deleteSubscription.jpg)
+        ![Figure 17: Delete Subscriptions via Webhook](../images/diagrams/webhooks-deleteSubscription.jpg)
       tags:
         - Webhooks
       responses:
@@ -933,7 +933,7 @@ webhooks:
         - In a response, the carrier / broker MAY confirm the appointment-changed webhook event information was received.
 
         Figure 18: Receive Appointment-Changed Events via Webhook
-        ![Figure 18: Receive Appointment-Changed Events via Webhook](images/diagrams/webhooks-appointment-changed.jpg)
+        ![Figure 18: Receive Appointment-Changed Events via Webhook](../images/diagrams/webhooks-appointment-changed.jpg)
       requestBody:
         required: true
         content:
@@ -1019,7 +1019,7 @@ webhooks:
         - In a response, the carrier / broker MAY confirm the fetch-available-appointment webhook event information was received.
 
         Figure 19: Receive Fetch-Available-Appointments Events via Webhook
-        ![Figure 19: Receive Fetch-Available-Appointments Events via Webhook](images/diagrams/webhooks-fetch-available-appointments.jpg)
+        ![Figure 19: Receive Fetch-Available-Appointments Events via Webhook](../images/diagrams/webhooks-fetch-available-appointments.jpg)
       requestBody:
         required: true
         content:
