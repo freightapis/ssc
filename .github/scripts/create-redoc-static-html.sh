@@ -52,7 +52,7 @@ createIndexHtml() {
     local indexHtml="$publicFolder/index.html"
     echo "<html><head><title>SSC API</title></head><body><h1>SSC API</h1><ul>" > $indexHtml
     for folder in "${folders[@]}"; do
-        echo "<li><a href=\"$folder\">$folder</a></li>" >> $indexHtml
+        echo "<li><a href=\"$folder/\">$folder</a></li>" >> $indexHtml
     done
     echo "</ul></body></html>" >> $indexHtml
 }
