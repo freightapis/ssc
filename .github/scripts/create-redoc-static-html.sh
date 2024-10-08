@@ -3,18 +3,23 @@ set -e
 
 declare currentFolder=$(pwd)
 declare publicFolder="$currentFolder/public"
+declare allFolders
 
 # Creates static html files for openapi.yaml file in the current directory
 loadStaticHtmlToFolder() {
     local folder="$1"
+
     echo "Creating folder $publicFolder/$folder"
     mkdir -p $publicFolder/$folder
-    npx @redocly/cli build-docs $currentFolder/$folder/openapi.yaml -o $publicFolder/$folder/index.html
+
+    echo "Running redocly/cli build-docs command on $currentFolder/$folder/openapi.yaml and saving it to $publicFolder/$folder/index.html"
+    npx @redocly/cli@latest build-docs $currentFolder/$folder/openapi.yaml -o $publicFolder/$folder/index.html
 }
 
 # Selects all folders in the current directory
 selectAllFoldersInDirectory() {
     local -n folders=$1
+
     echo "Selecting all folders in $currentFolder"
     
     # Use glob pattern to get all directories
@@ -32,24 +37,26 @@ selectAllFoldersInDirectory() {
 
 # Initializes the public folder
 initializePublicFolder() {
-    echo "Initializing public folder"
+    echo "Creating $publicFolder"
     mkdir -p $publicFolder
+
+    echo "Copying $currentFolder/images folder to $publicFolder"
     cp -r $currentFolder/images $publicFolder
 }
 
 # Creates index.html file
 createIndexHtml() {
     local -n folders=$1
-    echo "Creating index.html"
+
+    echo "Creating index.html in $publicFolder"
     local indexHtml="$publicFolder/index.html"
-    echo "<html><head><title>SSC</title></head><body><h1>SSC</h1><ul>" > $indexHtml
+    echo "<html><head><title>SSC API</title></head><body><h1>SSC API</h1><ul>" > $indexHtml
     for folder in "${folders[@]}"; do
-        echo "<li><a href=\"$folder/index.html\">$folder</a></li>" >> $indexHtml
+        echo "<li><a href=\"$folder\">$folder</a></li>" >> $indexHtml
     done
     echo "</ul></body></html>" >> $indexHtml
 }
 
-declare allFolders
 selectAllFoldersInDirectory allFolders
 initializePublicFolder
 createIndexHtml allFolders
